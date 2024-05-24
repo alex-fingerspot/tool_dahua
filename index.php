@@ -161,7 +161,7 @@
 
 
         function start_import(){
-            $('#buton').prop('disabled',true);
+            $('#buton').css('display','none');
             ajax_import(rows, 0);
         }
 
@@ -227,6 +227,8 @@
                             $('#count_fail').html(count_fail);
 
                         }
+                        
+                        ajax_import(rows, iteration);
 
                     },
                     error: function(jqXHR) {
@@ -236,7 +238,6 @@
 
                 iteration++;
 
-                ajax_import(rows, iteration)
             }
         }
     </script>

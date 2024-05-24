@@ -52,6 +52,7 @@
                     <tr>
                         <th>Pin</th>
                         <th>Nama</th>
+                        <th>Hak Akses</th>
                         <th>Pass</th>
                         <th>Foto</th>
                         <th>Status</th>
@@ -117,16 +118,22 @@
 
                         // save 
                         rows = XL_row_object;
+                        console.log(rows);
 
                         if(column_format_valid){
                             console.log(XL_row_object);
                             var html_tbody = '';
                             for(var i = 0 ; i < XL_row_object.length ; i++){
                                 var obj = XL_row_object[i];
+                                var hak = 'user biasa';
+                                if(obj.hak == 1){
+                                    hak = 'admin';
+                                }
                                 html_tbody += `
                                     <tr>
                                         <td>${obj.pin}</td>
                                         <td>${obj.nama}</td>
+                                        <td>${hak}</td>
                                         <td>${obj.pass}</td>
                                         <td>${obj.foto}</td>
                                         <td id="status_${obj.pin}" class="text-center">${icon_0}</td>
